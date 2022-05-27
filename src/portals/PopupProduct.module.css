@@ -1,0 +1,59 @@
+.container {
+  position: relative;
+  padding: 1rem 2rem;
+  box-shadow: 0 2rem 6rem rgba(255, 255, 255, 0.3);
+}
+
+.imgBox {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  margin-top: 5rem;
+}
+
+.name {
+  margin-bottom: 1.5rem;
+  color: var(--clr-accent-200);
+}
+
+.fabric {
+  font-style: italic;
+}
+
+.name,
+.fabric {
+  text-align: center;
+}
+
+.bulletBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.bullet {
+  font-weight: 500;
+}
+.bullet::marker {
+  color: var(--clr-accent-100);
+}
+
+.paragraph {
+  margin-block: 1.5rem;
+}
+
+.button {
+  position: absolute;
+  right: 0.5rem;
+  top: 1rem;
+}
+
+.highlight {
+  position: absolute;
+  top: 5rem;
+  left: 20%;
+}/*# sourceMappingURL=PopupProduct.module.css.map */

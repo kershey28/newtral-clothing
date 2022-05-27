@@ -1,0 +1,23 @@
+//navigation
+.navSticky {
+  position: fixed;
+  background-color: var(--clr-neutral-100);
+}
+
+.navAbsolute {
+  position: absolute;
+  background-color: transparent;
+}
+
+// Boxes
+.hidden {
+  opacity: 0;
+}
+
+.moveInRight {
+  animation: moveInRight 1.5s backwards ease-out 1s;
+}
+
+.moveInBottom {
+  animation: moveInBottom 1s backwards ease-out;
+}

@@ -1,0 +1,194 @@
+@use './../../styles/abstracts/breakpoints';
+@use './../../styles/utilities/flow';
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.subcontainer {
+  //layout
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  //position
+  position: relative;
+  overflow: hidden;
+
+  //styling
+  background-color: var(--clr-ash-100);
+  color: var(--clr-neutral-100);
+
+  //sizing
+  height: 100vh;
+  width: 100vw;
+}
+
+.slides {
+  display: grid;
+
+  > .slide {
+    grid-area: 1 / -1;
+  }
+
+  > button {
+    //default
+    appearance: none;
+    cursor: pointer;
+
+    //styling
+    background-color: transparent;
+    border: none;
+    color: var(--clr-ash-200);
+    transition: opacity 0.3s;
+    opacity: 0.7;
+
+    //position
+    position: absolute;
+    bottom: 5rem;
+    z-index: 5;
+
+    //sizing
+    width: 5rem;
+    height: 5rem;
+    font-size: 5rem;
+
+    @include breakpoints.respond(phone-reg) {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:first-child {
+      left: 35%;
+    }
+    &:last-child {
+      right: 35%;
+    }
+  }
+}
+
+.slide {
+  transform-style: preserve-3d;
+
+  &[data-active] {
+    .slideContent > * {
+      transform: none;
+      opacity: 1;
+      padding: 3rem;
+    }
+  }
+}
+
+.slideContent {
+  width: 50vw;
+  height: 70vh;
+
+  @include breakpoints.respond(phone-reg) {
+    width: 90vw;
+    height: 70vh;
+  }
+
+  //styling
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease-in-out;
+  opacity: 0.5;
+  border-radius: 10px;
+
+  //layout
+  display: grid;
+  align-content: center;
+
+  //transform
+  transform-style: preserve-3d;
+  transform: perspective(1000px) translateX(calc(100% * var(--offset)))
+    rotateY(calc(-45deg * var(--dir)));
+}
+
+.slideContentInner {
+  transform-style: preserve-3d;
+  transform: translateZ(2rem);
+  transition: opacity 0.3s linear;
+  text-shadow: 0 0.1rem 1rem #000;
+  opacity: 0;
+
+  .slideSubtitle,
+  .slideTitle {
+    font-size: var(--fs-heading);
+    font-weight: normal;
+    letter-spacing: 0.2ch;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .slideSubtitle::before {
+    content: '— ';
+  }
+
+  .slideDescription {
+    margin: 0;
+    font-size: var(--fs-label);
+    letter-spacing: 0.2ch;
+  }
+}
+
+.slideBackground {
+  //position
+  position: fixed;
+  inset: -2rem;
+  z-index: -1;
+
+  //styling
+  background-size: cover;
+  background-position: center center;
+  opacity: 0;
+  border-radius: 10px;
+  transition: opacity 0.3s linear, transform 0.3s ease-in-out;
+  pointer-events: none;
+  transform: translateX(calc(10% * var(--dir)));
+
+  @include breakpoints.respond(phone-reg) {
+    inset: -5rem -3rem;
+  }
+}
+
+.slide[data-active] {
+  z-index: 2;
+  pointer-events: auto;
+
+  .slideBackground {
+    opacity: 0.2;
+    transform: none;
+  }
+
+  .slideContentInner {
+    opacity: 1;
+  }
+
+  .slideContent {
+    --x: calc(var(--px) - 0.5);
+    --y: calc(var(--py) - 0.5);
+    opacity: 1;
+
+    transform: perspective(1000px);
+
+    &:hover {
+      transition: none;
+      transform: perspective(1000px) rotateY(calc(var(--x) * 45deg))
+        rotateX(calc(var(--y) * -45deg));
+    }
+  }
+}
+
+.buttonCTA {
+  margin-top: flow.$margin-md;
+}

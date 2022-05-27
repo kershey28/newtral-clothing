@@ -1,0 +1,14 @@
+.container {
+  font-weight: 700;
+  font-family: var(--ff-logo);
+  text-transform: uppercase;
+}
+.heading {
+  display: inline-block;
+  font-size: var(--fs-subheading);
+  color: var(--clr-ash-300);
+}
+
+.span {
+  color: var(--clr-primary-300);
+}

@@ -1,0 +1,104 @@
+@use 'breakpoints';
+
+// icons
+$icon-scale: (
+  'regular': 2.5rem,
+  'small': 2rem,
+);
+
+:root {
+  @each $size, $value in $icon-scale {
+    @if $size == 'regular' {
+      --icon-size: #{$value};
+    } @else {
+      @include breakpoints.respond(tab-port) {
+        --icon-size: #{$value};
+      }
+    }
+  }
+}
+
+@mixin icon($type) {
+  & {
+    height: var(--icon-size);
+    width: var(--icon-size);
+  }
+
+  @if $type == primary {
+    fill: var(--clr-primary-200);
+  }
+
+  @if $type == ash {
+    fill: var(--clr-ash-200);
+  }
+
+  @if $type == accent {
+    fill: var(--clr-accent-300);
+  }
+
+  @if $type == neutral {
+    fill: var(--clr-neutral-100);
+  }
+
+  @if $type == bookmarked {
+    fill: var(--clr-accent-500);
+    transform: translateY(2px) scale(1.2);
+  }
+
+  @content;
+}
+.icon-ash {
+  @include icon(ash);
+}
+
+.icon-primary {
+  @include icon(primary);
+}
+
+.icon-accent {
+  @include icon(accent);
+}
+
+.icon-white {
+  @include icon(neutral);
+}
+
+.icon-bookmarked {
+  @include icon(bookmarked);
+}
+
+.icon-cart {
+  height: 3rem;
+  width: 3rem;
+  fill: var(--clr-ash-200);
+}
+// stars
+$star-scale: (
+  'regular': 1.5rem,
+  'small': 1.2rem,
+);
+
+:root {
+  @each $size, $value in $star-scale {
+    @if $size == 'regular' {
+      --star-size: #{$value};
+    } @else {
+      @include breakpoints.respond(tab-port) {
+        --star-size: #{$value};
+      }
+    }
+  }
+}
+
+@mixin icon-star() {
+  & {
+    height: var(--star-size);
+    width: var(--star-size);
+    fill: var(--clr-accent-300);
+  }
+
+  @content;
+}
+.star-accent {
+  @include icon-star();
+}

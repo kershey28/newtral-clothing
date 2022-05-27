@@ -1,0 +1,14 @@
+.heading {
+  margin-bottom: 5rem;
+}
+
+.features,
+.featuredItem {
+  padding-inline: 3rem;
+  padding-block: 7rem;
+}
+
+.products {
+  margin-block: 8rem;
+  padding-inline: 3rem;
+}/*# sourceMappingURL=PageProduct.module.css.map */

@@ -1,0 +1,88 @@
+@use '../../styles/abstracts/variables';
+
+@mixin btn-regular($type) {
+  & {
+    //sizing
+    padding: 1.5rem 3rem;
+    width: max-content;
+
+    //typography
+    text-decoration: none;
+    font-size: var(--fs-label);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+
+    //styling
+    transition: all 0.2s;
+
+    //default
+    appearance: none;
+    cursor: pointer;
+
+    //layout
+    display: inline-block;
+    position: relative;
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  @if $type == primary {
+    background-image: linear-gradient(
+      to right bottom,
+      var(--clr-accent-300),
+      var(--clr-accent-200),
+      var(--clr-accent-100)
+    );
+    color: var(--clr-neutral-100);
+    box-shadow: variables.$shadow-black-light;
+    border: 1px solid var(--clr-accent-200);
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: variables.$shadow-black-dark;
+    }
+  }
+
+  @if $type == ghost {
+    background-color: transparent;
+    box-shadow: variables.$shadow-black-light;
+    border: 1px solid var(--clr-accent-300);
+    color: var(--clr-accent-300);
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: variables.$shadow-black-dark;
+    }
+  }
+
+  @content;
+}
+
+.btnCTA {
+  @include btn-regular(primary);
+
+  &:disabled {
+    color: var(--clr-primary-100);
+    background-image: var(--clr-ash-200);
+    border: 1px solid currentColor;
+    cursor: auto;
+  }
+}
+
+.btnGhost {
+  @include btn-regular(ghost);
+}

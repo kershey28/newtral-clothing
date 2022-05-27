@@ -1,0 +1,34 @@
+@use './../../styles/utilities/flow';
+
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+}
+
+.total {
+  // layout
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  //others
+  font-size: var(--fs-label);
+  margin-block: flow.$margin-sm;
+}
+
+.totalAmount {
+  color: var(--clr-accent-300);
+  font-size: var(--fs-label);
+}
+
+.actions {
+  text-align: right;
+}
+
+.button {
+  margin-top: flow.$margin-sm;
+  margin-left: flow.$margin-sm;
+  font-size: var(--fs-body);
+  border-radius: 25px;
+}

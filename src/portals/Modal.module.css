@@ -1,0 +1,64 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  background-color: var(--clr-neutral-100);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  -webkit-animation: moveInBottom 0.5s backwards ease-in;
+          animation: moveInBottom 0.5s backwards ease-in;
+  padding: 1.5rem 2rem;
+  position: fixed;
+  top: 20vh;
+  left: 5%;
+  z-index: 300;
+  width: 55rem;
+  left: calc(50% - 27.5rem);
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+.modal::-webkit-scrollbar {
+  background-color: transparent;
+}
+.modal::-webkit-scrollbar-thumb {
+  background-color: var(--clr-ash-opacity-100);
+  border-radius: 10px;
+}
+.modal::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+@media only screen and (max-width: 37.5em) {
+  .modal {
+    width: 90%;
+    left: 5%;
+  }
+}
+
+@-webkit-keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}/*# sourceMappingURL=Modal.module.css.map */

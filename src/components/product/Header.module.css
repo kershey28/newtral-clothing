@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  height: 60vh;
+  background-color: var(--clr-ash-100);
+}
+@media only screen and (max-width: 37.5em) {
+  .container {
+    height: 30rem;
+  }
+}
+
+@media only screen and (max-width: 48.75em) {
+  .img {
+    display: none;
+  }
+}/*# sourceMappingURL=Header.module.css.map */

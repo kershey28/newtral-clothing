@@ -1,0 +1,53 @@
+@use './../../styles/utilities/flow';
+@use './../../styles/abstracts/breakpoints';
+
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+
+  //sizing
+  width: 100%;
+  height: 100%;
+
+  //styling
+  background-color: var(--clr-ash-100);
+  clip-path: circle(50px at 80% 20%);
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.imgBox {
+  position: relative;
+  z-index: 1;
+}
+
+.img {
+  position: relative;
+}
+
+.content {
+  margin-bottom: flow.$margin-sm;
+
+  @include breakpoints.respond(phone-reg) {
+    text-align: center;
+  }
+}
+
+.container:hover .circle {
+  clip-path: circle(170px at 80% -20%);
+  opacity: 1;
+}
+
+.soldOut {
+  color: var(--clr-ash-300);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}

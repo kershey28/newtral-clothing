@@ -1,0 +1,57 @@
+.circle {
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--clr-ash-opacity-200);
+  font-size: 0.6rem;
+  font-family: var(--ff-logo);
+  text-transform: uppercase;
+  color: var(--clr-neutral-opacity-100);
+  position: absolute;
+  top: -3rem;
+  left: 5rem;
+  -webkit-animation: wave 2s infinite;
+          animation: wave 2s infinite;
+}
+
+@-webkit-keyframes wave {
+  0% {
+    outline-offset: 0px;
+    outline: 0px solid var(--clr-ash-opacity-200);
+  }
+  20% {
+    outline: 3px solid var(--clr-ash-opacity-200);
+  }
+  50% {
+    outline-offset: 10px;
+  }
+  70% {
+    outline: 3px solid var(--clr-ash-opacity-200);
+  }
+  100% {
+    outline-offset: 0px;
+    outline: 0px solid var(--clr-ash-opacity-200);
+  }
+}
+
+@keyframes wave {
+  0% {
+    outline-offset: 0px;
+    outline: 0px solid var(--clr-ash-opacity-200);
+  }
+  20% {
+    outline: 3px solid var(--clr-ash-opacity-200);
+  }
+  50% {
+    outline-offset: 10px;
+  }
+  70% {
+    outline: 3px solid var(--clr-ash-opacity-200);
+  }
+  100% {
+    outline-offset: 0px;
+    outline: 0px solid var(--clr-ash-opacity-200);
+  }
+}/*# sourceMappingURL=HighlightCircle.module.css.map */

@@ -1,0 +1,63 @@
+@use './../styles/utilities/flow';
+@use './../styles/abstracts/variables';
+
+.container {
+  position: relative;
+
+  padding: 1rem 2rem;
+  box-shadow: variables.$shadow-white-dark;
+}
+.imgBox {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  margin-top: flow.$margin-md;
+}
+
+.name {
+  margin-bottom: flow.$margin-sm;
+  color: var(--clr-accent-200);
+}
+
+.fabric {
+  font-style: italic;
+}
+
+.name,
+.fabric {
+  text-align: center;
+}
+
+.bulletBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: flow.$margin-md;
+}
+
+.bullet {
+  font-weight: 500;
+
+  &::marker {
+    color: var(--clr-accent-100);
+  }
+}
+
+.paragraph {
+  margin-block: flow.$margin-sm;
+}
+
+.button {
+  position: absolute;
+  right: 0.5rem;
+  top: 1rem;
+}
+
+.highlight {
+  position: absolute;
+  top: 5rem;
+  left: 20%;
+}

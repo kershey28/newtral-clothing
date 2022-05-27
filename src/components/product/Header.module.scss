@@ -1,0 +1,26 @@
+@use '../../styles/abstracts/breakpoints';
+
+// parent
+.container {
+  //layout
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+
+  //others
+  height: 60vh;
+  background-color: var(--clr-ash-100);
+
+  @include breakpoints.respond(phone-reg) {
+    height: 30rem;
+  }
+}
+
+// children-1
+.img {
+  //780px
+  @media only screen and (max-width: 48.75em) {
+    display: none;
+  }
+}

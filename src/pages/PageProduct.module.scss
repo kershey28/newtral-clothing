@@ -1,0 +1,16 @@
+@use './../styles/utilities/flow';
+
+.heading {
+  margin-bottom: flow.$margin-md;
+}
+
+.features,
+.featuredItem {
+  padding-inline: flow.$padding-sm;
+  padding-block: flow.$padding-lg;
+}
+
+.products {
+  margin-block: flow.$margin-lg;
+  padding-inline: flow.$padding-sm;
+}
