@@ -28,7 +28,7 @@
   transform: translateY(2px);
 }
 .btnOps:disabled {
-  cursor: auto;
+  cursor: not-allowed;
 }
 .btnOps:disabled svg {
   fill: var(--clr-ash-200);

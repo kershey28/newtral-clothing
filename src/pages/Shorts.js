@@ -107,8 +107,6 @@ const Shorts = (props, ref) => {
   const FeaturedItemParagraph =
     "Jersey fabric is one of our most durable shorts in men's apparel. It can last up to 5 years. Sustainability and durability rolled into one pair of shorts. You don't have to worry about moving through your everyday activities.";
 
-  //TEST
-  console.log('SHORTS');
   return (
     <section className={classes.container}>
       <Header

@@ -5,27 +5,27 @@ const Footer = props => {
     <footer className={classes.footer}>
       <ul className={classes.nav}>
         <li className={classes.item}>
-          <a href="https://paladise.netlify.app/" className={classes.link}>
+          <a href="https://kershey.netlify.app/" className={classes.link}>
             Feedbacks
           </a>
         </li>
         <li className={classes.item}>
-          <a href="https://callsaul.netlify.app/" className={classes.link}>
+          <a href="https://kershey.netlify.app/" className={classes.link}>
             Contact me
           </a>
         </li>
         <li className={classes.item}>
-          <a href="https://cashybank.netlify.app/" className={classes.link}>
+          <a href="https://kershey.netlify.app/" className={classes.link}>
             Projects
           </a>
         </li>
         <li className={classes.item}>
-          <a href="https://yourtrips.netlify.app/" className={classes.link}>
+          <a href="https://kershey.netlify.app/" className={classes.link}>
             Privacy Policy
           </a>
         </li>
         <li className={classes.item}>
-          <a href="https://gorecipe.netlify.app/" className={classes.link}>
+          <a href="https://kershey.netlify.app/" className={classes.link}>
             Terms
           </a>
         </li>

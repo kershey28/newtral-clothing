@@ -1,50 +1,24 @@
-import React, { useRef, useState, useEffect } from 'react';
-
 import ButtonGhost from '../buttons/ButtonGhost';
+import { useElementOnScreenOnce } from '../../helpers/hooks';
 
 import classes from './Features.module.css';
 
-const Features = (props, ref) => {
-  ///////////////////////////////////////
-  // Animation
-  const squareGhostRef = useRef(null);
-  const squareFillRef = useRef(null);
+const Features = props => {
+  // observer
+  const [elementRef, isElementAppeared] = useElementOnScreenOnce({
+    root: null,
+    threshold: 1,
+  });
 
-  const [isSquareAnimated, setSquareAnimated] = useState(false);
-  const squareGhostClass = isSquareAnimated ? 'moveInRight' : 'hidden';
-  const squareFillClass = isSquareAnimated ? 'moveInBottom' : 'hidden';
-
-  useEffect(() => {
-    // functionality
-    const squareAnimate = (entries, observer) => {
-      const [entry] = entries;
-      if (!entry.isIntersecting) return;
-
-      setSquareAnimated(true);
-      observer.unobserve(entry.target);
-    };
-
-    //observer;
-    const squareObserver = new IntersectionObserver(squareAnimate, {
-      root: null,
-      threshold: 0.15,
-    });
-
-    squareObserver.observe(squareGhostRef.current);
-  }, []);
+  const squareGhostClass = isElementAppeared ? 'moveInRight' : 'hidden';
+  const squareFillClass = isElementAppeared ? 'moveInBottom' : 'hidden';
 
   return (
     <div className={`${classes.container} ${props.class}`}>
-      <div className={classes.imgBox}>
+      <div className={classes.imgBox} ref={elementRef}>
         <img src={props.modelImage} alt="model" className={classes.img} />
-        <div
-          className={`${classes.squareFill} ${squareFillClass}`}
-          ref={squareFillRef}
-        ></div>
-        <div
-          className={`${squareGhostClass} ${classes.squareGhost}`}
-          ref={squareGhostRef}
-        ></div>
+        <div className={`${classes.squareFill} ${squareFillClass}`}></div>
+        <div className={`${squareGhostClass} ${classes.squareGhost}`}></div>
       </div>
 
       <div className={classes.textBox}>
@@ -59,4 +33,4 @@ const Features = (props, ref) => {
   );
 };
 
-export default React.forwardRef(Features);
+export default Features;

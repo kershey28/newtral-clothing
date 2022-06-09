@@ -1,25 +1,18 @@
-import { useRef, useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import CartContext from '../../store/cart-context';
 import { makeID } from '../../helpers/helpers';
+import { useElementOnScreenOnce } from '../../helpers/hooks';
 import ButtonCTA from '../buttons/ButtonCTA';
 import HighlightCircle from './../icons/HighlightCircle';
 
 import classes from './Features.module.css';
 
 const FeaturedItem = props => {
-  ///////////////////////////////////////
-  // Animation
-  const squareGhostRef = useRef(null);
-  const squareFillRef = useRef(null);
+  // Modal
   const cartCtx = useContext(CartContext);
   const location = useLocation();
-
-  const [isSquareAnimated, setSquareAnimated] = useState(false);
-  const squareGhostClass = isSquareAnimated ? 'moveInBottom' : 'hidden';
-  const squareFillClass = isSquareAnimated ? 'moveInRight' : 'hidden';
-
   const [gotFeaturedProduct, setGotFeaturedProduct] = useState(false);
 
   const addToCartHandler = () => {
@@ -66,24 +59,14 @@ const FeaturedItem = props => {
     }
   };
 
-  useEffect(() => {
-    // functionality
-    const squareAnimate = (entries, observer) => {
-      const [entry] = entries;
-      if (!entry.isIntersecting) return;
+  // observer
+  const [elementRef, isElementAppeared] = useElementOnScreenOnce({
+    root: null,
+    threshold: 1,
+  });
 
-      setSquareAnimated(true);
-      observer.unobserve(entry.target);
-    };
-
-    //observer;
-    const squareObserver = new IntersectionObserver(squareAnimate, {
-      root: null,
-      threshold: 0.15,
-    });
-
-    squareObserver.observe(squareGhostRef.current);
-  }, []);
+  const squareGhostClass = isElementAppeared ? 'moveInRight' : 'hidden';
+  const squareFillClass = isElementAppeared ? 'moveInBottom' : 'hidden';
 
   return (
     <div className={`${classes.container} ${props.class}`}>
@@ -114,16 +97,10 @@ const FeaturedItem = props => {
         />
       </div>
 
-      <div className={classes.imgBox}>
+      <div className={classes.imgBox} ref={elementRef}>
         <img src={props.modelImage} alt="model" className={classes.img} />
-        <div
-          className={`${classes.squareFill} ${squareFillClass}`}
-          ref={squareFillRef}
-        ></div>
-        <div
-          className={`${squareGhostClass} ${classes.squareGhost}`}
-          ref={squareGhostRef}
-        ></div>
+        <div className={`${classes.squareFill} ${squareFillClass}`}></div>
+        <div className={`${squareGhostClass} ${classes.squareGhost}`}></div>
       </div>
     </div>
   );

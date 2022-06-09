@@ -7,8 +7,6 @@ import classes from './Home.module.css';
 const Home = (props, ref) => {
   const headerRef = ref;
 
-  //TEST
-  console.log('HOME');
   return (
     <>
       <div ref={headerRef} className={classes.container}>

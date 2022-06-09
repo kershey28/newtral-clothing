@@ -22,40 +22,6 @@
 .slides > .slide {
   grid-area: 1/-1;
 }
-.slides > button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  color: var(--clr-ash-200);
-  transition: opacity 0.3s;
-  opacity: 0.7;
-  position: absolute;
-  bottom: 5rem;
-  z-index: 5;
-  width: 5rem;
-  height: 5rem;
-  font-size: 5rem;
-}
-@media only screen and (max-width: 37.5em) {
-  .slides > button {
-    display: none;
-  }
-}
-.slides > button:hover {
-  opacity: 1;
-}
-.slides > button:focus {
-  outline: none;
-}
-.slides > button:first-child {
-  left: 35%;
-}
-.slides > button:last-child {
-  right: 35%;
-}
 
 .slide {
   transform-style: preserve-3d;

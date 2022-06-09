@@ -51,7 +51,7 @@
   @include btn-ops;
 
   &:disabled {
-    cursor: auto;
+    cursor: not-allowed;
 
     & svg {
       fill: var(--clr-ash-200);

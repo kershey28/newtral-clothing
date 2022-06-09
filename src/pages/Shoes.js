@@ -107,8 +107,6 @@ const Shoes = (props, ref) => {
   const FeaturedItemParagraph =
     'Every pair is made of top quality materials and is handcrafted by our Filipino craftsmen with world-class shoemaking skills. Dapper look, real quick! Made with authentic leather to take the essential steps with you.';
 
-  //TEST
-  console.log('SHOES');
   return (
     <section className={classes.container}>
       <Header

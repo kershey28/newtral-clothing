@@ -108,8 +108,6 @@ const Tees = (props, ref) => {
   const FeaturedItemParagraph =
     'Supima fabric takes basic clothes to a whole new premium level. Its quality and durability show you how everyday wear should be.';
 
-  //TEST
-  console.log('TEES');
   return (
     <section className={classes.container}>
       <Header

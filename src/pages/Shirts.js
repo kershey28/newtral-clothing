@@ -108,9 +108,6 @@ const Shirts = (props, ref) => {
   const FeaturedItemParagraph =
     "Exceptionally lightweight and breathable, the Linen fabric ensures that you'll stay in style while being comfortable. ";
 
-  //TEST
-  console.log('SHIRTS');
-
   return (
     <section className={classes.container}>
       <Header

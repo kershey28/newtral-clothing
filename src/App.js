@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useRef, useState } from 'react';
 
@@ -77,6 +77,8 @@ function App() {
               <Shoes ref={headerShoesRef} onShowModal={onShowModalHandler} />
             }
           />
+
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
 
         {/* Footer */}
